@@ -2,7 +2,7 @@
 // console.log(document.domain)
 // console.log(document.URL)
 // console.log(document.title)
-// //document.title = 123
+// //document.title = 123435987
 // console.log(document.head)
 console.log(document.images)
 console.log(document.getElementById('hi'))
