@@ -49,3 +49,26 @@ for(var i = 0 ; i<li.length; i++){
 // using querrySelector
 var header = document.querySelector('#main-header')
 header.style.borderBottom = 'solid 4px blue'
+
+// task 6
+var secondItem = document.querySelector('.list-group-item:nth-child(2)')
+secondItem.style.backgroundColor='green'
+
+// var thirdItem = document.querySelector('.list-group-item:nth-child(3)')
+// thirdItem.style.display = 'none'
+
+var odd=document.querySelectorAll('li:nth-child(odd)')
+for(var i=0;i<odd.length;i++){
+    odd[i].style.backgroundColor='orange'
+}
+//  this method can be used for queryselectorall
+// let n=1 
+// var fourthItem = document.querySelectorAll('li:nth-child(4n)')
+// [0].style.backgroundColor = 'green'
+
+
+var fourthItem = document.querySelectorAll('li')
+li[3].style.color='green'
+
+
+
