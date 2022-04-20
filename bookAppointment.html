@@ -29,19 +29,18 @@
         <script>
           function saveToLocal(event){
             event.preventDefault()
-            var name = event.target.username.value;
-            var username = event.target.email.value;
-            var emaaa = 23;
-            const details = {
-              name,
-              username
-             }
-             localStorage.setItem('userdetails', JSON.stringify(details))  
-                
+            var name = event.target.username.value
+            var username = event.target.email.value
+            //  localStorage.setItem('name',name)          task 10
+            //  localStorage.setItem('email', username)    task 10
+            const obj = {
+                  name,
+                  username
+            }
+            localStorage.setItem('userdetails',JSON.stringify(obj))
           }
           </script>
       </form>
-
      
 
       <ul id="users"></ul>
