@@ -29,16 +29,19 @@
         <script>
           function saveToLocal(event){
             event.preventDefault()
-            var name = event.target.username.value
-            var username = event.target.email.value
+            var name = event.target.username.value;
+            var username = event.target.email.value;
+            var emaaa = 23;
             const details = {
               name,
               username
              }
-             localStorage.setItem('userdetails', JSON.stringify(details) )      
+             localStorage.setItem('userdetails', JSON.stringify(details))  
+                
           }
           </script>
       </form>
+
      
 
       <ul id="users"></ul>
