@@ -31,8 +31,11 @@
             event.preventDefault()
             var name = event.target.username.value
             var username = event.target.email.value
-             localStorage.setItem('name',name)
-             localStorage.setItem('email', username)
+            const details = {
+              name,
+              username
+             }
+             localStorage.setItem('userdetails', JSON.stringify(details) )      
           }
           </script>
       </form>
