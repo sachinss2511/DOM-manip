@@ -31,6 +31,7 @@
             event.preventDefault()
             var name = event.target.username.value
             var username = event.target.email.value
+            
             //  localStorage.setItem('name',name)          task 10
             //  localStorage.setItem('email', username)    task 10
             const obj = {
@@ -46,14 +47,14 @@
             parentNode.innerHTML = parentNode.innerHTML + childHTML;
          }
             
-
-         document.addEventListener('DOMContentLoaded', ()=>{
-          Object.keys(localStorage).forEach((key) => {
-        stringifiedDetailsOfPeople = localStorage.getItem(key);
-        detailsOfPeople = JSON.parse(stringifiedDetailsOfPeople);
-        showNewUserOnScreen(detailsOfPeople);
-        });
-         });
+document.addEventListener('DOMContentLoaded', () => {
+  Object.keys(localStorage).forEach((key) => {
+    stringifiedDetailsOfPeople = localStorage.getItem(key)
+    detailsOfPeople = JSON.parse(stringifiedDetailsOfPeople)
+    showNewUserOnScreen(detailsOfPeople)
+  });
+});
+        
 
 
           </script>
