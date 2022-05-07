@@ -1,0 +1,123 @@
+
+
+
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+        <form id="my-form" onsubmit="saveToLocal(event)">
+          
+          <div class="msg"></div>
+          <div>
+            <label for="name">Expense Amount:</label>
+            <input id ='amount' onchange = 'saveAmount(event)' type="number" name="amount" required>
+          </div>
+          <div>
+            <label for="description">Choose description:</label>
+            <input id ='description' type="text" name="description" required>
+          </div>
+          <div>
+            <label for="category">Choose a category:</label>
+            <input id ='category' type="text" name="category" required>
+          </div>
+          <input class="btn" type="submit" value="Add Expense">
+          <ul id = 'listOfUsers'> </ul>
+
+         <script>
+function saveToLocal(event){
+
+event.preventDefault()
+var expense = event.target.amount.value
+var description = event.target.description.value
+var category = event.target.category.value
+console.log(expense, description, category);
+
+//  localStorage.setItem('name',name)          task 10
+//  localStorage.setItem('email', username)    task 10
+const obj = {
+      expense,
+      description,
+      category
+}
+
+showNewUserOnScreen(obj)
+localStorage.setItem(obj.category,JSON.stringify(obj))
+
+event.target.amount.value = ""
+event.target.description.value = ""
+event.target.category.value = ""
+
+}
+function showNewUserOnScreen(user){
+
+const parentNode = document.getElementById('listOfUsers')
+const childHTML = `<li id = '${user.expense}'> ${user.description} - ${user.expense} - ${user.category}
+  <button  onClick = deleteUser('${user.category}','${user.expense}')> Delete </button>
+  <button  id = "myBtn" onClick = editUser('${user.expense}','${user.description}','${user.category}')> Edit </button>
+  </li>`
+parentNode.innerHTML = parentNode.innerHTML + childHTML;
+}
+// function saveAmount(event){
+// event.preventDefault()
+// console.log(event.target.value);
+// document.getElementById("myBtn").disabled = true;
+// }
+function deleteUser(category,expense){
+    
+          localStorage.removeItem(category)
+          console.log(expense);
+          removeUserFromScreen(expense)
+          console.log(category);
+                 }
+
+         function removeUserFromScreen(category){
+          const parentNode = document.getElementById('listOfUsers')
+          const childNodeToBeDeleted = document.getElementById(category)
+          parentNode.removeChild(childNodeToBeDeleted)
+         }
+
+         function editUser(expense,description,category){
+          
+          document.getElementById('amount').value = expense
+          document.getElementById('description').value = description
+          document.getElementById('category').value = category
+        
+           deleteUser(category,expense)
+         }  
+
+        //  if (expense !== ""){
+        //        return
+        //    }
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+  Object.keys(localStorage).forEach((key) => {
+    stringifiedDetailsOfPeople = localStorage.getItem(key)
+    detailsOfPeople = JSON.parse(stringifiedDetailsOfPeople)
+    showNewUserOnScreen(detailsOfPeople)
+  });
+});
+
+</script>
+
+<ul id="users"></ul>
+<ul class="items">
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+  <li class="item">Item 3</li>
+</ul>
+
+
+
+
+</body>
+</html>
